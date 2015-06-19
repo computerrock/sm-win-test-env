@@ -1,0 +1,25 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  # Max time to wait for the guest to shutdown
+  config.windows.halt_timeout = 60
+
+  # Admin user name and password
+  config.winrm.username = "IEUser"
+  config.winrm.password = "Passw0rd!"
+
+  # Configure base box parameters
+  config.vm.box = "ie11_win8_1"
+  config.vm.box_url = "../boxes/IE11.Win8.1.For.Vagrant.box"
+  config.vm.box_check_update = false
+  config.vm.communicator = "winrm"
+
+  config.vm.provider "virtualbox" do |v|
+    v.gui = true
+  end
+
+  # Port forward WinRM and RDP
+  config.vm.network :forwarded_port, host:3389, guest: 3389
+  config.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
+end
