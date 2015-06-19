@@ -1,5 +1,5 @@
 
-# Vagrant test environments for Windows / IE #
+# Vagrant environments for Windows / IE #
 
 List of environments:
 
@@ -22,7 +22,7 @@ List of environments:
 
 ### Vagrant environment manipulation ###
 
-**Boot** Vagrant environment, by going to environment folder (eg. ie8-win7) and run `vagrant up`.
+**Boot** virtual machine by going to environment folder (eg. ie8-win7) and running `vagrant up`.
 
 **Suspending** the virtual machine by calling `vagrant suspend` will save the current running state of the machine and stop it.
 
