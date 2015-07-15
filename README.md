@@ -30,3 +30,7 @@ List of environments:
 
 **Destroying** the virtual machine by calling `vagrant destroy` will remove all traces of the guest machine from your system. It'll stop the guest machine, power it down, and remove all of the guest hard disks.
 
+### Network ###
+
+Boxes have NAT IPs in range 192.168.15.2-10. Consult box Vagrant file to check which IP it is set to.  
+Boxes also have bridged mode networks enabled, during startup you may be asked which host network card to use for bridge.
