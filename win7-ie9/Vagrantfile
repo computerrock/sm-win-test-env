@@ -1,0 +1,27 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  # Max time to wait for the guest to shutdown
+  config.windows.halt_timeout = 60
+
+  # Admin user name and password
+  config.winrm.username = "IEUser"
+  config.winrm.password = "Passw0rd!"
+
+  # Configure base box parameters
+  config.vm.box = "sm-test-env-win7-ie9"
+  config.vm.box_url = "../boxes/IE9 - Win7.box"
+  config.vm.box_check_update = false
+  config.vm.communicator = "winrm"
+
+  config.vm.provider "virtualbox" do |v|
+    v.gui = true
+  end
+
+  # Network settings
+  config.vm.network :private_network, ip: "192.168.15.6"
+  config.vm.network :public_network
+  config.vm.network :forwarded_port, host:3389, guest: 3389
+  config.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
+end

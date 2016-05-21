@@ -10,8 +10,8 @@ Vagrant.configure(2) do |config|
   config.winrm.password = "Passw0rd!"
 
   # Configure base box parameters
-  config.vm.box = "ie8_win7"
-  config.vm.box_url = "../boxes/IE8.Win7.For.Vagrant.box"
+  config.vm.box = "sm-test-env-xp-ie6"
+  config.vm.box_url = "../boxes/IE6 - WinXP.box"
   config.vm.box_check_update = false
   config.vm.communicator = "winrm"
 
@@ -20,7 +20,7 @@ Vagrant.configure(2) do |config|
   end
 
   # Network settings
-  config.vm.network :private_network, ip: "192.168.15.4"
+  config.vm.network :private_network, ip: "192.168.15.2"
   config.vm.network :public_network
   config.vm.network :forwarded_port, host:3389, guest: 3389
   config.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
