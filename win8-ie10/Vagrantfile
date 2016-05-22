@@ -10,6 +10,7 @@ Vagrant.configure(2) do |config|
   config.winrm.password = "Passw0rd!"
 
   # Configure base box parameters
+  config.vm.name = "sm-test-env-win8-ie10"
   config.vm.box = "sm-test-env-win8-ie10"
   config.vm.box_url = "../boxes/IE10 - Win8.box"
   config.vm.box_check_update = false
