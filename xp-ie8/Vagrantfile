@@ -10,7 +10,16 @@ Vagrant.configure(2) do |config|
   config.winrm.password = "Passw0rd!"
 
   # Configure base box parameters
-  config.vm.name = "sm-test-env-xp-ie8"
+  config.vm.provider :virtualbox do |v|
+      v.name = "sm-test-env-xp-ie8"
+#    v.customize [
+#        "modifyvm", :id,
+#        "--name", 'hostname',
+#        "--memory", '2048',
+#        "--natdnshostresolver1", "on",
+#        "--cpus", 2,
+#    ]
+  end
   config.vm.box = "sm-test-env-xp-ie8"
   config.vm.box_url = "../boxes/IE8 - WinXP.box"
   config.vm.box_check_update = false
